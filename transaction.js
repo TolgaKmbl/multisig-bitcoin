@@ -54,15 +54,15 @@ async function multiSign(){
         changeAddress: multiSigAddress   // Sending the change back to this address
     });
 
-    keyring1.script = redeemScript;
-    keyring2.script = redeemScript;
+    keyring1.script = redeemScript;  // In order to be able to sign using the keyrings, 
+    keyring2.script = redeemScript;  // we need to set the redeem scripts in the keyrings.
 
-    mtx.scriptInput(0, coin, keyring1); // Input number 0, coin object, one of the keyring
+    mtx.scriptInput(0, coin, keyring1);  // Input number 0, coin object, one of the keyring
     mtx.sign(keyring1);
     mtx.sign(keyring2);
 
     console.log(mtx);
-    console.log(mtx.verify()); // FALSE, if 1 or 0 signature only
+    console.log(mtx.verify());  // FALSE, if 1 or 0 signature only
     assert(mtx.verify());  
 }
 
