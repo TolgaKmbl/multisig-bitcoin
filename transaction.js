@@ -41,7 +41,7 @@ async function multiSign(){
     const mtx = new MTX();
 
     const coins = [];
-    const coin = Coin.fromTX(cb, 0, -1);
+    const coin = Coin.fromTX(cb, 0, -1); // coin object, output number 0, block height of this tx. Since it doesn't have a block height, we put -1
     coins.push(coin);
 
     mtx.addOutput({
@@ -57,7 +57,7 @@ async function multiSign(){
     keyring1.script = redeemScript;
     keyring2.script = redeemScript;
 
-    mtx.scriptInput(0, coin, keyring1);
+    mtx.scriptInput(0, coin, keyring1); // Input number 0, coin object, one of the keyring
     mtx.sign(keyring1);
     mtx.sign(keyring2);
 
