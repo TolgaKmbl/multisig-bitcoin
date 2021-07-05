@@ -21,7 +21,7 @@ const pubKeys = [key1.publicKey, key2.publicKey];
 const multiSigScript = Script.fromMultisig(m, n, pubKeys); // Normal multisig locking script
 console.log(multiSigScript);
 
-const address = multiSigScript.getAddress().toBase58(network); // Hash yapiyotuz <Script_Hash> Pay to Script Hash Address
+const address = multiSigScript.getAddress().toBase58(network); //<Script_Hash> Pay to Script Hash Address
 console.log(address);
 
 fs.writeFileSync("address", address);
