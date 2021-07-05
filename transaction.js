@@ -45,13 +45,13 @@ async function multiSign(){
     coins.push(coin);
 
     mtx.addOutput({
-        address: receiverAddress,
+        address: receiverAddress, 
         value: 10000
     });
 
     await mtx.fund(coins, {
-        rate: 10000,
-        changeAddress: multiSigAddress
+        rate: 10000,                      // Fee rate 10000 sat/kB
+        changeAddress: multiSigAddress   // Sending the change back to this address
     });
 
     keyring1.script = redeemScript;
